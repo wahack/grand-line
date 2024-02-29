@@ -1,0 +1,39 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SaiyaPetTest
+    network: blast-testnet
+    source:
+      abi: SaiyaPetTest
+      address: "0x869B8E3fF0D30B1f34a9397c95ce4dEc3D76728E"
+      startBlock: 1314575
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - Paused
+        - Transfer
+        - Unpaused
+        - PetOwner
+      abis:
+        - name: SaiyaPetTest
+          file: SaiyaPetTest/abis/SaiyaPetTest.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: Paused(address)
+          handler: handlePaused
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: SaiyaPetTest/SaiyaPetTest.wasm
