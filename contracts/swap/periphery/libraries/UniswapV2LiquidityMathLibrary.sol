@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 
-import '../../swap-core/interfaces/IUniswapV2Pair.sol';
-import '../../swap-core/interfaces/IUniswapV2Factory.sol';
-import '../../swap-lib/contracts/libraries/Babylonian.sol';
-import '../../swap-lib/contracts/libraries/FullMath.sol';
+import '../../core/interfaces/IUniswapV2Pair.sol';
+import '../../core/interfaces/IUniswapV2Factory.sol';
+import '../../lib/contracts/libraries/Babylonian.sol';
+import '../../lib/contracts/libraries/FullMath.sol';
 
 import './SafeMath.sol';
 import './UniswapV2Library.sol';
