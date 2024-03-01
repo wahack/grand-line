@@ -1,0 +1,36 @@
+{
+  "name": "@grand-line/swap",
+  "scripts": {
+    "preinstall": "npx -y only-allow pnpm",
+    "console": "hardhat console --network blast-testnet",
+    "deploy": "node deploy.mjs",
+    "compile": "hardhat compile",
+    "graph": "node thegraph.mjs",
+    "graph:deploy": "cd ./subgraph && graph deploy saiyapet --network blast-testnet"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "0.67.2",
+    "@graphprotocol/graph-ts": "0.32.0",
+    "@graphprotocol/hardhat-graph": "github:wahack/hardhat-graph#build",
+    "@inquirer/prompts": "^4.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.4",
+    "@nomicfoundation/hardhat-foundry": "^1.1.1",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@openzeppelin/hardhat-upgrades": "^3.0.3",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "ethers": "^6.4.0",
+    "hardhat": "^2.19.5",
+    "@nomicfoundation/hardhat-toolbox-viem": "latest",
+    "@nomicfoundation/hardhat-viem": "latest",
+    "hardhat-deploy": "^0.11.45",
+    "hardhat-deploy-ethers": "^0.4.1",
+    "typechain": "^8.3.2",
+    "viem": "^2.7.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.1",
+    "@openzeppelin/contracts-upgradeable": "^5.0.1"
+  }
+}
