@@ -162,6 +162,21 @@ export interface IUniswapV2Factory$Type {
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "initCodeHash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {

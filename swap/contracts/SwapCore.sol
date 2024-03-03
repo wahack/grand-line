@@ -3,7 +3,6 @@
 */
 
 pragma solidity =0.5.16;
-
 interface IUniswapV2Factory {
     event PairCreated(address indexed token0, address indexed token1, address pair, uint);
 
@@ -18,6 +17,7 @@ interface IUniswapV2Factory {
 
     function setFeeTo(address) external;
     function setFeeToSetter(address) external;
+    function initCodeHash() external pure returns (bytes32);
 }
 
 interface IUniswapV2Pair {
@@ -410,6 +410,15 @@ contract UniswapV2Factory is IUniswapV2Factory {
 
     function allPairsLength() external view returns (uint) {
         return allPairs.length;
+    }
+
+    function initCodeHash() external pure returns (bytes32) {
+        bytes memory bytecode = type(UniswapV2Pair).creationCode;
+        bytes32 hash;
+        assembly {
+            hash := keccak256(add(bytecode, 32), mload(bytecode))
+        }
+        return hash;
     }
 
     function createPair(address tokenA, address tokenB) external returns (address pair) {

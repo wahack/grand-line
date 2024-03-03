@@ -31,7 +31,25 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   //   args: [],
   //   log: true,
   // });
+  await deploy('TokenA', {
+    from: deployer,
+    contract: 'TokenErc20', // contract name in ./contracts
+    args: ["TokenB", "TokenB"],
+    log: true,
+  });
+  await deploy('TokenB', {
+    from: deployer,
+    contract: 'TokenErc20', // contract name in ./contracts
+    args: ["TokenB", "TokenB"],
+    log: true,
+  });
 
+  await deploy('TokenC', {
+    from: deployer,
+    contract: 'TokenErc20', // contract name in ./contracts
+    args: ["TokenC", "TokenC"],
+    log: true,
+  });
   const UniswapV2Pair = await deploy('UniswapV2Pair', {
     from: deployer,
     contract: 'UniswapV2Pair', // contract name in ./contracts
@@ -39,7 +57,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     log: true,
   });
 
-  console.log('code hash of UniswapV2Pair:', keccak256(UniswapV2Pair.bytecode!.slice(0, 64)));
+  console.log('code hash of UniswapV2Pair:', keccak256(UniswapV2Pair.bytecode!));
 
 
   const UniswapV2Factory = await deploy('UniswapV2Factory', {

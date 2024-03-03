@@ -293,6 +293,7 @@ contract SwapRouter is IUniswapV2Router02 {
         TransferHelper.safeTransferFrom(tokenB, msg.sender, pair, amountB);
         liquidity = IUniswapV2Pair(pair).mint(to);
     }
+
     function addLiquidityETH(
         address token,
         uint amountTokenDesired,
@@ -697,7 +698,7 @@ library UniswapV2Library {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'd799009aa62b727cc54958e5cea2c0afe2d193f789666f761ad7582633c6e983' // init code hash
+                hex'4c7e863b1b61ce8782353ad246730fc723a295aab4979913d3b9ef8ed940a0ca'
             ))));
     }
 

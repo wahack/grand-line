@@ -74,7 +74,7 @@ const config: HardhatUserConfig = {
     deployments: 'deployments',
     subgraph: './subgraph', // Defaults to './subgraph'
   },
-  defaultNetwork: 'blast-testnet',
+  // defaultNetwork: 'blast-testnet',
 };
 
 export default config;
