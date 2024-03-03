@@ -10,12 +10,35 @@ import 'hardhat-deploy-ethers';
 import '@graphprotocol/hardhat-graph';
 
 const config: HardhatUserConfig = {
-  solidity: '0.8.20',
+  solidity:{
+    compilers:[
+      {
+        version: '0.8.20'
+      },{
+        version: '0.5.16',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200
+          }
+        }
+      },
+      {
+        version: '0.6.6',
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200
+          }
+        }
+      }
+    ]
+  },
   networks: {
     sepolia: {
       url: 'https://ethereum-sepolia.publicnode.com',
       chainId: 11155111,
-      accounts: require('./config/sepolia-wallet.js'),
+      accounts: require('../config/sepolia-wallet.js'),
     },
     'blast-mainnet': {
       url: '',
@@ -25,14 +48,14 @@ const config: HardhatUserConfig = {
       url: 'https://sepolia.blast.io',
       chainId: 168587773,
       gasPrice: 1000000000,
-      accounts: require('./config/sepolia-wallet.js'),
+      accounts: require('../config/sepolia-wallet.js'),
     },
     // local ganache cli
     ganache: {
       url: 'http://127.0.0.1:7545',
       chainId: 1337,
       gasPrice: 1000000000,
-      accounts: require('./config/ganache-wallet.js'),
+      accounts: require('../config/ganache-wallet.js'),
     },
   },
   namedAccounts: {
